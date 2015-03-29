@@ -1,0 +1,10 @@
+README.rst
+setup.py
+src/pybot_core/__init__.py
+src/pybot_core/cli.py
+src/pybot_core/log.py
+src/pybot_core/simpleconfig.py
+src/pybot_core.egg-info/PKG-INFO
+src/pybot_core.egg-info/SOURCES.txt
+src/pybot_core.egg-info/dependency_links.txt
+src/pybot_core.egg-info/top_level.txt
