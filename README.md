@@ -1,7 +1,7 @@
 ''pybot'' collection
 ====================
 
-This package is part of the ''pybot'' packages collection, which aims
+This package is part of POBOT's `pybot` packages collection, which aims
 at gathering contributions created while experimenting with various technologies or
 hardware in the context of robotics projects.
 
@@ -20,7 +20,3 @@ documentation](https://www.python.org/dev/peps/pep-0382/) for details.
 ======================
 
 General interest modules which are used by other packages of the collection.
-
-
-
-
