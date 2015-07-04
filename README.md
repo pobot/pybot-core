@@ -16,7 +16,7 @@ The collection code is organized using namespace packages, in order to group the
 a single tree rather that resulting in a invading flat collection. Please refer to [this official
 documentation](https://www.python.org/dev/peps/pep-0382/) for details.
 
-''pybot.core'' content
-======================
+`pybot.core` content
+====================
 
 General interest modules which are used by other packages of the collection.
