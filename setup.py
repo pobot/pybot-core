@@ -4,8 +4,9 @@
 from setuptools import setup, find_packages
 
 setup(name='pybot_core',
+      namespace_packages=['pybot'],
       version='1.0',
-      description='Core part of PyBot packages collection',
+      description='PyBot packages collection common stuff',
       license='LGPL',
       author='Eric Pascual',
       author_email='eric@pobot.org',

@@ -1,2 +1,5 @@
 *.pyc
 dist/
+*.egg-info
+src/pybot_core.egg-info
+build
