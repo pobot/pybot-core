@@ -19,11 +19,4 @@ documentation](https://www.python.org/dev/peps/pep-0382/) for details.
 Package content
 ===============
 
-General interest modules which are used by other packages of the collection.
-
-At the time of writing, you'll find here :
- 
-  - helpers for command line parsers creation, proposing common options sur as debug mode
-    activation, logging level setting,...
-  - logging helpers, based on Python's logging module
-  - helpers for dealing with simple configuration files
+See README.rst
