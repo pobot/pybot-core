@@ -1,6 +1,6 @@
-``pybot_abelec.adcpi`` module
-=============================
+``pybot.core.cli`` module
+=========================
 
-.. automodule:: pybot_abelec.adcpi
+.. automodule:: pybot.core.cli
     :members:
     :show-inheritance:

@@ -1,6 +1,6 @@
-``pybot.core.cli`` module
+``pybot.core.log`` module
 =========================
 
-.. automodule:: pybot.core.cli
+.. automodule:: pybot.core.log
     :members:
     :show-inheritance:
