@@ -33,6 +33,20 @@ Installation
 
 ::
 
+    $ cd <PROJECT_ROOT_DIR>
     $ python setup.py sdist
     $ pip install dist/*.tar.gz
 
+Documentation generation
+========================
+
+The documentation generation uses Sphinx (http://sphinx-doc.org/).
+::
+
+    $ cd <PROJECT_ROOT_DIR>/docs
+    $ make html
+
+Examples
+========
+
+*Under work*
