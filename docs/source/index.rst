@@ -27,3 +27,7 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
+GitHub project
+--------------
+
+https://github.com/pobot-pybot/pybot-core
