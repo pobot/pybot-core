@@ -37,8 +37,11 @@ Installation
     $ python setup.py sdist
     $ pip install dist/*.tar.gz
 
-Documentation generation
-========================
+Documentation
+=============
+
+Generation
+----------
 
 The documentation generation uses Sphinx (http://sphinx-doc.org/).
 ::
@@ -48,8 +51,8 @@ The documentation generation uses Sphinx (http://sphinx-doc.org/).
 
 It can be browsed online at : http://pobot-pybot.github.io/pybot-core/
 
-Documentation publication
-=========================
+Publication
+-----------
 
 The generated documentation can be published on github.io by using the `buildandcommit` make target. Beware
 that the method used here is slightly different than the one described in article at
