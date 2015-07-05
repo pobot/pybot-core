@@ -54,14 +54,14 @@ It can be browsed online at : <http://pobot-pybot.github.io/pybot-core/>
 Publication
 -----------
 
-The generated documentation can be published on github.io by using the ``buildandcommit`` make target. Beware
+The generated documentation can be published on github.io by using the ``ghpublish`` make target. Beware
 that the method used here is slightly different than the one described in article at
 <http://daler.github.io/sphinxdoc-test/>.
 
 Instead of modifying the Makefile for changing the ``BUILDDIR`` definition, it uses a symlink from the
-``_build`` subdirectory to the the documentation sibling project used to updated the gh-pages branch.
+``_build`` subdirectory to the the documentation sibling project used to updated the ``gh-pages`` branch.
 The motivation is that users wanting to generate the documentation for local use only and without the intention
-to modify it do not need to setup the gh-branch related stuff.
+to modify it do not need to setup the ``gh-branch`` related stuff.
 
 So, instead of modifying the Makefile as instructed, you only need to use the command:
 ::
