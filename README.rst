@@ -1,5 +1,5 @@
-''pybot'' collection
-====================
+POBOT's ``pybot`` collection
+============================
 
 This package is part of POBOT's ``pybot`` packages collection, which aims
 at gathering contributions created while experimenting with various technologies or
