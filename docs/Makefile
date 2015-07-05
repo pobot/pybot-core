@@ -24,6 +24,9 @@ I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
 default: html
 
+buildandcommit: html
+	cd $(BUILDDIR)/html ; git commit -a -m "rebuilt docs" ; git push origin gh-pages
+
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
 	@echo "  html       to make standalone HTML files"
