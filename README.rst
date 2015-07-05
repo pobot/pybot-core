@@ -46,6 +46,8 @@ The documentation generation uses Sphinx (http://sphinx-doc.org/).
     $ cd <PROJECT_ROOT_DIR>/docs
     $ make html
 
+It can be browsed online at : http://pobot-pybot.github.io/pybot-core/
+
 Examples
 ========
 
