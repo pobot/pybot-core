@@ -3,8 +3,7 @@
 
 from setuptools import setup, find_packages
 
-setup(name='pybot_core',
-      namespace_packages=['pybot'],
+setup(name='pybot-core',
       version='1.0',
       description='PyBot packages collection common stuff',
       license='LGPL',
