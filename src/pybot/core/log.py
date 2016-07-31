@@ -8,6 +8,29 @@ import copy
 # surface logging module public definitions (do not remove although PyLint saying it is not used)
 # noinspection PyUnresolvedReferences
 from logging import *
+import re
+
+try:
+    import colorlog
+
+    def ColoredFormatter(
+            fmt="%(log_color)s[%(levelname).1s] %(name)-15s > %(message)s",
+            datefmt="%m-%d %H:%M:%S"
+    ):
+        return colorlog.ColoredFormatter(
+            fmt=fmt,
+            datefmt=datefmt,
+            log_colors={
+                    'DEBUG':    'reset',
+                    'INFO':     'green',
+                    'WARNING':  'yellow',
+                    'ERROR':    'red',
+                    'CRITICAL': 'bold_red',
+            }
+        )
+
+except ImportError:
+    colorlog = None
 
 
 _default_configuration = {
@@ -24,7 +47,7 @@ _default_configuration = {
     'handlers': {
         'console': {
             'class': 'logging.StreamHandler',
-            'formatter': 'brief',
+            'formatter': 'pybot.core.log.ColoredFormatter' if colorlog else 'brief',
             'level': 'INFO',
             'stream': 'ext://sys.stdout'
         },
@@ -77,3 +100,12 @@ def abbrev(fqn):
     """
     parts = fqn.split('.')
     return '.'.join([s[0] for s in parts[:-1]] + [parts[-1]])
+
+
+_regex = re.compile(r'\033.*?m')
+
+
+def uncolorify(s):
+    return _regex.sub('', s)
+
+
