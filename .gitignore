@@ -4,3 +4,5 @@ dist/
 src/pybot_core.egg-info
 build
 docs/_build
+fabfile.py
+RELEASE-VERSION
