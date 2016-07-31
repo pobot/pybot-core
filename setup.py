@@ -1,10 +1,10 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 from setuptools import setup, find_packages
 
 setup(name='pybot-core',
-      version='1.0',
+      setup_requires=['setuptools_scm'],
+      use_scm_version=True,
       description='PyBot packages collection common stuff',
       license='LGPL',
       author='Eric Pascual',
