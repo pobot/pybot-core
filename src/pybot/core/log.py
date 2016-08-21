@@ -56,12 +56,12 @@ _default_configuration = {
             'formatter': 'detailed',
             'level': 'DEBUG',
             'filename': '',
-            'maxBytes': 1024*1024,
+            'maxBytes': 1024*50,
             'backupCount': 3
         }
     },
     'root': {
-        'handlers': ['console', 'file'],
+        'handlers': ['file'],
         'level': 'DEBUG'
     }
 }
