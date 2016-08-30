@@ -9,6 +9,7 @@ import copy
 # noinspection PyUnresolvedReferences
 from logging import *
 import re
+import os
 
 try:
     import colorlog
@@ -109,3 +110,17 @@ def uncolorify(s):
     return _regex.sub('', s)
 
 
+def log_file_path(log_name):
+    """ Returns the full path of the log file, depending on the currently running used.
+
+    In case the log_name parameter includes the ".log" extension already, it ia used as is.
+    Otherwise the extension will be appended.
+
+    :param str log_name: the log name (i.e. its filename without the extension)
+    :return: the log file full path
+    :rtype: str
+    """
+    log_dir = "/var/log" if os.getuid() == 0 else os.path.expanduser("~/")
+    if not log_name.endswith('.log'):
+        log_name += '.log'
+    return os.path.join(log_dir, log_name)
