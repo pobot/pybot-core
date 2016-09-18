@@ -7,9 +7,12 @@ import copy
 
 # surface logging module public definitions (do not remove although PyLint saying it is not used)
 # noinspection PyUnresolvedReferences
-from logging import *
+from logging import INFO, WARN, WARNING, ERROR, DEBUG, getLogger
+import logging.config
+
 import re
 import os
+import datetime
 
 try:
     import colorlog
@@ -124,3 +127,64 @@ def log_file_path(log_name):
     if not log_name.endswith('.log'):
         log_name += '.log'
     return os.path.join(log_dir, log_name)
+
+
+def setup_logging(log_name):
+    logging.config.dictConfig(get_logging_configuration({
+        'handlers': {
+            'file': {
+                'filename': log_file_path(log_name)
+            }
+        }
+    }))
+
+
+class LogMixin(object):
+    """ Adds logging function to a class.
+
+    Bundles more common methods from logging standard module and takes care of configuration
+    so that all classes using this Mixin will use an homogeneous logging without having the
+    burden of low level stuff.
+
+    The ``logger`` attribute gives access to the embedded logger instance for advanced usages
+    if needed.
+    """
+    def __init__(self, parent=None, name=None, width=40):
+        name = name or self.__class__.__name__
+        self._log_width = width
+
+        self.logger = parent.getChild(name) if parent else getLogger(name)
+
+        self.log_info = self.logger.info
+        self.log_warning = self.logger.warning
+        self.log_error = self.logger.error
+        self.log_critical = self.logger.critical
+        self.log_exception = self.logger.exception
+        self.log_setLevel = self.logger.setLevel
+        self.log_getEffectiveLevel = self.logger.getEffectiveLevel
+
+    def log_banner(self, text):
+        separator = '-' * self._log_width
+        self.logger.info(separator)
+        if isinstance(text, basestring):
+            if '\n' in text:
+                lines = text.splitlines()
+            else:
+                lines = [text]
+        else:
+            lines = text
+        for line in lines:
+            self.logger.info(line)
+        self.logger.info(separator)
+
+    def log_error_banner(self, error, unexpected=False):
+        title = 'unexpected error' if unexpected else 'abnormal termination '
+        self.logger.fatal((' ' + title + ' ').center(self._log_width, '!'))
+        self.logger.fatal(error)
+        self.logger.fatal('!' * self._log_width)
+
+    def log_starting_banner(self, version=None):
+        text = ['starting on %s' % datetime.datetime.now()]
+        if version:
+            text.append('version ' + version)
+        self.log_banner(text)
