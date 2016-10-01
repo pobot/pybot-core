@@ -155,7 +155,7 @@ class LogMixin(object):
     The ``logger`` attribute gives access to the embedded logger instance for advanced usages
     if needed.
     """
-    def __init__(self, parent=None, name=None, width=40, level=INFO):
+    def __init__(self, parent=None, name=None, level=INFO, width=40):
         name = name or self.__class__.__name__
         self._log_width = width
 
