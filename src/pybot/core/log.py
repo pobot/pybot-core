@@ -58,7 +58,7 @@ _default_configuration = {
         'file': {
             'class': 'logging.handlers.RotatingFileHandler',
             'formatter': 'detailed',
-            'level': 'DEBUG',
+            'level': 'INFO',
             'filename': '',
             'maxBytes': 1024*50,
             'backupCount': 3
@@ -66,7 +66,7 @@ _default_configuration = {
     },
     'root': {
         'handlers': ['file'],
-        'level': 'DEBUG'
+        'level': 'INFO'
     }
 }
 
@@ -129,12 +129,18 @@ def log_file_path(log_name):
     return os.path.join(log_dir, log_name)
 
 
-def setup_logging(log_name):
+def setup_logging(log_name, debug=False):
+    level = 'DEBUG' if debug else 'INFO'
+
     logging.config.dictConfig(get_logging_configuration({
         'handlers': {
             'file': {
-                'filename': log_file_path(log_name)
+                'filename': log_file_path(log_name),
+                'level': level
             }
+        },
+        'root': {
+            'level': level
         }
     }))
 
@@ -149,7 +155,7 @@ class LogMixin(object):
     The ``logger`` attribute gives access to the embedded logger instance for advanced usages
     if needed.
     """
-    def __init__(self, parent=None, name=None, width=40):
+    def __init__(self, parent=None, name=None, width=40, level=INFO):
         name = name or self.__class__.__name__
         self._log_width = width
 
@@ -163,6 +169,8 @@ class LogMixin(object):
         self.log_debug = self.logger.debug
         self.log_setLevel = self.logger.setLevel
         self.log_getEffectiveLevel = self.logger.getEffectiveLevel
+
+        self.log_setLevel(level)
 
     def log_banner(self, text):
         separator = '-' * self._log_width
@@ -185,8 +193,8 @@ class LogMixin(object):
         self.logger.fatal('!' * self._log_width)
 
     def log_starting_banner(self, version=None):
-        text = ['starting on %s' % datetime.datetime.now()]
+        text = ['start time : %s' % datetime.datetime.now()]
         if version:
-            text.append('version ' + version)
+            text.append('version : ' + version)
         text.append('log level set to : ' + getLevelName(self.logger.getEffectiveLevel()))
         self.log_banner(text)
