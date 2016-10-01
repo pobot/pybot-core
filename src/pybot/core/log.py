@@ -7,7 +7,7 @@ import copy
 
 # surface logging module public definitions (do not remove although PyLint saying it is not used)
 # noinspection PyUnresolvedReferences
-from logging import INFO, WARN, WARNING, ERROR, DEBUG, getLogger, NullHandler
+from logging import INFO, WARN, WARNING, ERROR, DEBUG, getLogger, NullHandler, getLevelName
 import logging.config
 
 import re
@@ -188,4 +188,5 @@ class LogMixin(object):
         text = ['starting on %s' % datetime.datetime.now()]
         if version:
             text.append('version ' + version)
+        text.append('log level set to : ' + getLevelName(self.logger.getEffectiveLevel()))
         self.log_banner(text)
