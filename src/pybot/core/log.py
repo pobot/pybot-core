@@ -160,6 +160,7 @@ class LogMixin(object):
         self.log_error = self.logger.error
         self.log_critical = self.logger.critical
         self.log_exception = self.logger.exception
+        self.log_debug = self.logger.debug
         self.log_setLevel = self.logger.setLevel
         self.log_getEffectiveLevel = self.logger.getEffectiveLevel
 
