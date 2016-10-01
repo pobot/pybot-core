@@ -7,7 +7,7 @@ import copy
 
 # surface logging module public definitions (do not remove although PyLint saying it is not used)
 # noinspection PyUnresolvedReferences
-from logging import INFO, WARN, WARNING, ERROR, DEBUG, getLogger
+from logging import INFO, WARN, WARNING, ERROR, DEBUG, getLogger, NullHandler
 import logging.config
 
 import re
