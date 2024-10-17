@@ -1,0 +1,6 @@
+-r requirements.txt
+
+setuptools>=58
+setuptools_scm
+bump2version
+wheel

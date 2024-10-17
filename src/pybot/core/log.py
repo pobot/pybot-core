@@ -196,5 +196,9 @@ class LogMixin(object):
         text = ['start time : %s' % datetime.datetime.now()]
         if version:
             text.append('version : ' + version)
-        text.append('log level set to : ' + getLevelName(self.logger.getEffectiveLevel()))
+        text.append('log level set to : ' + self.log_effective_level_as_string)
         self.log_banner(text)
+
+    @property
+    def log_effective_level_as_string(self):
+        return getLevelName(self.logger.getEffectiveLevel())
